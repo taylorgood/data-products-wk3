@@ -2,8 +2,9 @@
 title: "Week 3"
 author: "T. G."
 date: "July 10, 2017"
-output: html_document
+output: ioslides_presentation
 ---
+# The Crash
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
@@ -23,7 +24,7 @@ p<- df %>%
     plot_ly(x = ~Date, type="ohlc",
             open = ~AIG.Open, close = ~AIG.Close,
             high = ~AIG.High, low = ~AIG.Low) %>%
-    layout(title = "What Happened to AIG September 15th, 2008?")
+    layout(title = "What Happened to AIG in September 15th, 2008?")
 
 p
 
