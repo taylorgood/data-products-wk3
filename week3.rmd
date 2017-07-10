@@ -1,0 +1,30 @@
+---
+title: "Week 3"
+author: "T. G."
+date: "July 10, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+require(plotly)
+require(quantmod)
+
+```
+
+
+```{r, echo = FALSE, message = FALSE}
+library(plotly)
+
+AIG <-getSymbols("AIG", src = "yahoo", from = "2008-08-16", to = "2008-10-16", auto.assign = FALSE)
+df <- data.frame(Date=index(AIG),coredata(AIG))
+
+p<- df %>%
+    plot_ly(x = ~Date, type="ohlc",
+            open = ~AIG.Open, close = ~AIG.Close,
+            high = ~AIG.High, low = ~AIG.Low) %>%
+    layout(title = "What Happened to AIG September 15th, 2008?")
+
+p
+
+```
